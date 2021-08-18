@@ -32,6 +32,10 @@ endif
 clean:
 	rm -f coverage.out
 	rm -rf ${NAME}*
+ifneq (${HAS_DOCKER},)
+	docker-compose down --rmi local --remove-orphans -v
+	docker-compose rm -f -v
+endif
 
 .PHONY: build
 build-%: clean

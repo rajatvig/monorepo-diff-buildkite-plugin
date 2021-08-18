@@ -197,9 +197,9 @@ By setting `wait` to `true`, the build will wait until the triggered pipeline bu
 
 ### `download` (optional)
 
-Default: `true`
+Default: `false`
 
-By setting `download` to `false`, the plugin assumes that the binary is present in `/usr/bin`.
+By setting `download` to `true`, the plugin will download the binary else it assumes that the binary is present in `/usr/bin`.
 
 ### `hooks` (optional)
 

@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.1]
+
+### Added
+- Change ownership for plugin to rajatvig
+
+## [2.1.0]
+
+### Added
+- Support pre-downloaded binary by default
+- Add release archives using goreleaser
+
 ## [2.0.4]
 
 ### Added

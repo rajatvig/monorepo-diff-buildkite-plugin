@@ -1,4 +1,4 @@
-FROM golang:1.16.3 as go
+FROM golang:1.16.7 as go
 
 WORKDIR /plugin
 
@@ -12,4 +12,4 @@ COPY . .
 
 COPY --from=go \
   /plugin/monorepo-diff-buildkite-plugin-linux \
-  /usr/bin/monorepo-diff-buildkite-plugin-linux
+  /usr/bin/monorepo-diff-buildkite-plugin

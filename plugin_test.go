@@ -20,7 +20,7 @@ func TestPluginWithInvalidParameter(t *testing.T) {
 
 func TestPluginShouldHaveDefaultValues(t *testing.T) {
 	param := `[{
-		"github.com/chronotc/monorepo-diff-buildkite-plugin#commit": {}
+		"github.com/rajatvig/monorepo-diff-buildkite-plugin#commit": {}
 	}]`
 
 	got, _ := initializePlugin(param)
@@ -45,7 +45,7 @@ func TestPluginWithValidParameter(t *testing.T) {
 
 func TestPluginShouldUnmarshallCorrectly(t *testing.T) {
 	param := `[{
-		"github.com/chronotc/monorepo-diff-buildkite-plugin#commit": {
+		"github.com/rajatvig/monorepo-diff-buildkite-plugin#commit": {
 			"diff": "cat ./hello.txt",
 			"wait": true,
 			"log_level": "debug",

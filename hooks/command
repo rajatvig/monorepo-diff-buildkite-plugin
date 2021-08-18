@@ -6,7 +6,7 @@ version=$(echo $plugin | sed -e 's/.*monorepo-diff-buildkite-plugin//' -e 's/\".
 repo="https://github.com/chronotc/monorepo-diff-buildkite-plugin"
 executable="monorepo-diff-buildkite-plugin-linux"
 test_mode="${BUILDKITE_PLUGIN_MONOREPO_DIFF_BUILDKITE_PLUGIN_TEST_MODE:-false}"
-download_executable="${BUILDKITE_PLUGIN_MONOREPO_DIFF_BUILDKITE_PLUGIN_DOWNLOAD:-true}"
+download_executable="${BUILDKITE_PLUGIN_MONOREPO_DIFF_BUILDKITE_PLUGIN_DOWNLOAD:-false}"
 
 
 if [[ "$download_executable" == "true" ]]; then

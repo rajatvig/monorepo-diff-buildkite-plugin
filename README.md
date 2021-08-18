@@ -1,8 +1,10 @@
 [![e2e status](https://badge.buildkite.com/719d0b895285367c9c57a09e07f1e853148d2509f0667e0ae8.svg?branch=master)](https://buildkite.com/kuda/monorepo-diff-buildkite-plugin)
-[![codecov](https://codecov.io/gh/chronotc/monorepo-diff-buildkite-plugin/branch/master/graph/badge.svg?token=DQ3B4FIYD2)](https://codecov.io/gh/chronotc/monorepo-diff-buildkite-plugin)
-[![Publish](https://github.com/chronotc/monorepo-diff-buildkite-plugin/actions/workflows/publish.yml/badge.svg)](https://github.com/chronotc/monorepo-diff-buildkite-plugin/actions/workflows/publish.yml)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![codecov](https://codecov.io/gh/chronotc/monorepo-diff-buildkite-plugin/branch/master/graph/badge.svg?token=DQ3B4FIYD2)](https://codecov.io/gh/rajatvig/monorepo-diff-buildkite-plugin)
+[![Publish](https://github.com/chronotc/monorepo-diff-buildkite-plugin/actions/workflows/publish.yml/badge.svg)](https://github.com/rajatvig/monorepo-diff-buildkite-plugin/actions/workflows/release.yml)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 # monorepo-diff-buildkite-plugin
 
 This plugin will assist you in triggering pipelines by watching folders in your `monorepo`.
@@ -11,7 +13,7 @@ Check out this post to learn [**How to set up Continuous Integration for monorep
 
 ## Using the plugin
 
-If the version number is not provided then the most recent version of the plugin will be used. Do not use version number as `master` or any branch names.
+The plugin assumes that the binary `monorepo-diff-buildkite-plugin` is present in `/usr/bin` on the agent. The binary can be found on the releases tab.
 
 ### Simple
 
@@ -19,7 +21,7 @@ If the version number is not provided then the most recent version of the plugin
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - chronotc/monorepo-diff#v2.1.1:
+      - rajatvig/monorepo-diff#v2.2.0:
           diff: "git diff --name-only HEAD~1"
           watch:
             - path: "bar-service/"
@@ -36,7 +38,7 @@ steps:
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - chronotc/monorepo-diff#v2.1.1:
+      - rajatvig/monorepo-diff#v2.2.0:
           diff: "git diff --name-only $(head -n 1 last_successful_build)"
           interpolation: false
           env:
@@ -52,8 +54,8 @@ steps:
                 label: "Upload pipeline"
                 retry:
                   automatic:
-                  - limit: 2
-                    exit_status: -1
+                    - limit: 2
+                      exit_status: -1
                 agents:
                   queue: performance
                 artifacts:
@@ -132,7 +134,7 @@ Add `log_level` property to set the log level. Supported log levels are `debug` 
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - chronotc/monorepo-diff#v2.1.1:
+      - rajatvig/monorepo-diff#v2.2.0:
           diff: "git diff --name-only HEAD~1"
           log_level: "debug" # defaults to "info"
           watch:
@@ -208,7 +210,7 @@ hooks:
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - chronotc/monorepo-diff#v2.1.1:
+      - rajatvig/monorepo-diff#v2.2.0:
           diff: "git diff --name-only HEAD~1"
           watch:
             - path: app/cms/
@@ -258,9 +260,7 @@ Please read [contributing guide](https://github.com/chronotc/monorepo-diff-build
   </tr>
   <tr>
     <td align="center"><a href="http://ronaldmiranda.com.br"><img src="https://avatars.githubusercontent.com/u/14340100?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ronald Carvalho</b></sub></a><br /><a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/issues?q=author%3Aronaldmiranda" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/harrietgrace"><img src="https://avatars.githubusercontent.com/u/2074469?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harriet Lawrence</b></sub></a><br /><a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=harrietgrace" title="Documentation">📖</a> <a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=harrietgrace" title="Examples">💡</a></td>
-    <td align="center"><a href="https://github.com/runlevel5"><img src="https://avatars.githubusercontent.com/u/135605?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Trung Lê</b></sub></a><br /><a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=runlevel5" title="Code">💻</a> <a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=runlevel5" title="Examples">💡</a><a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=runlevel5" title="Tests">⚠️</a></td>
-    <td align="center"><a href="https://github.com/jquick"><img src="https://avatars.githubusercontent.com/u/574637?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jared Quick</b></sub></a><br /><a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/issues?q=author%3jquick" title="Bug reports">🐛</a> <a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=jquick" title="Code">💻</a> <a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=jquick" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/harrietgrace"><img src="https://avatars.githubusercontent.com/u/2074469?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harriet Lawrence</b></sub></a><br /><a href="https://github.com/chronotc/monorepo-diff-buildkite-plugin/commits?author=harrietgrace" title="Documentation">📖</a> <a href="#example-harrietgrace" title="Examples">💡</a></td>
   </tr>
 </table>
 

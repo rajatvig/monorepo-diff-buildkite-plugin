@@ -10,7 +10,7 @@ Check out this post to learn [**How to set up Continuous Integration for monorep
 
 ## Using the plugin
 
-If the version number is not provided then the most recent version of the plugin will be used. Do not use version number as `master` or any branch names.
+The plugin assumes that the binary `monorepo-diff-buildkite-plugin` is present in `/usr/bin` on the agent. The binary can be found on the releases tab.
 
 ### Simple
 
@@ -18,7 +18,7 @@ If the version number is not provided then the most recent version of the plugin
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - monebag/monorepo-diff#v2.5.6:
+      - rajatvig/monorepo-diff#v2.6.0:
           diff: "git diff --name-only HEAD~1"
           watch:
             - path: "bar-service/"
@@ -35,7 +35,7 @@ steps:
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - monebag/monorepo-diff#v2.5.6:
+      - rajatvig/monorepo-diff#v2.6.0:
           diff: "git diff --name-only $(head -n 1 last_successful_build)"
           interpolation: false
           env:
@@ -151,7 +151,7 @@ Add `log_level` property to set the log level. Supported log levels are `debug` 
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - monebag/monorepo-diff#v2.5.6:
+      - rajatvig/monorepo-diff#v2.6.0:
           diff: "git diff --name-only HEAD~1"
           log_level: "debug" # defaults to "info"
           watch:
@@ -227,7 +227,7 @@ hooks:
 steps:
   - label: "Triggering pipelines"
     plugins:
-      - monebag/monorepo-diff#v2.5.6:
+      - rajatvig/monorepo-diff#v2.6.0:
           diff: "git diff --name-only HEAD~1"
           watch:
             - path: app/cms/

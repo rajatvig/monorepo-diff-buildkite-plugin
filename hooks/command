@@ -46,6 +46,10 @@ need_cmd() {
 # This wraps curl or wget.
 # Try curl first, if not installed, use wget instead.
 downloader() {
+  if check_cmd "$2"; then
+    return
+  fi
+
   if check_cmd curl; then
     _dld=curl
   elif check_cmd wget; then
@@ -75,7 +79,7 @@ download_binary_and_run() {
   get_architecture || return 1
   local _arch="$RETVAL"
   local _executable="monorepo-diff-buildkite-plugin"
-  local _repo="https://github.com/monebag/monorepo-diff-buildkite-plugin"
+  local _repo="https://github.com/rajatvig/monorepo-diff-buildkite-plugin"
 
   get_version || return 1
   local _version="$RETVAL"
@@ -96,10 +100,10 @@ download_binary_and_run() {
       exit 1
     fi
 
-    chmod +x ${_executable}
+    $(_executable)
+  else
+    ./${_executable}
   fi
-
-  ./${_executable}
 }
 
 download_binary_and_run "$@" || exit 1

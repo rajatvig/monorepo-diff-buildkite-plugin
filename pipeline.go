@@ -76,7 +76,9 @@ func uploadPipeline(plugin Plugin, generatePipeline PipelineGenerator) (string, 
 		args = append(args, "--no-interpolation")
 	}
 
-	_, err = executeCommand("buildkite-agent", args)
+	if env("BUILDKITE_PLUGIN_MONOREPO_DIFF_BUILDKITE_PLUGIN_TEST_MODE", "false") != "true" {
+		_, err = executeCommand("buildkite-agent", args)
+	}
 
 	return cmd, args, err
 }
